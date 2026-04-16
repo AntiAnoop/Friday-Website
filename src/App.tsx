@@ -18,6 +18,7 @@ import {
   Briefcase, 
   Award,
   Star,
+  Mail,
   FileText,
   Plus,
   Search,
@@ -41,6 +42,76 @@ export default function App() {
       <main>
         {/* 4.1 HERO SECTION */}
         <section className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden bg-white">
+          {/* Floating Elements - Optimized positioning to prevent overlap */}
+          <div className="absolute inset-0 pointer-events-none overflow-hidden hidden lg:block">
+            {/* Robot Icon - Far Left */}
+            <motion.div 
+              animate={{ y: [0, -15, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute top-[60%] left-[2%] xl:left-[5%] 2xl:left-[8%]"
+            >
+              <div className="relative scale-75 xl:scale-100">
+                <div className="w-16 h-16 bg-gradient-to-br from-[#00D4FF] to-[#0080FE] rounded-full flex items-center justify-center shadow-lg border-4 border-white">
+                  <Zap className="w-8 h-8 text-white" />
+                </div>
+                <div className="absolute -top-2 -right-2 w-4 h-4 bg-green-500 rounded-full border-2 border-white"></div>
+                <svg className="absolute -top-8 -right-8 w-12 h-12 text-gray-200 rotate-45 opacity-30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </div>
+            </motion.div>
+
+            {/* Avatar 1 - Top Right */}
+            <motion.div 
+              animate={{ y: [0, 15, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute top-[15%] right-[2%] xl:right-[5%] 2xl:right-[8%]"
+            >
+              <div className="relative scale-75 xl:scale-100">
+                <div className="w-14 h-14 rounded-full border-4 border-white shadow-lg overflow-hidden">
+                  <img src="https://picsum.photos/seed/user1/100/100" alt="User" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                </div>
+                <div className="absolute bottom-0 right-0 w-4 h-4 bg-green-500 rounded-full border-2 border-white"></div>
+                <svg className="absolute top-1/2 -left-10 w-10 h-10 text-gray-200 -rotate-12 opacity-30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M19 12H5M12 19l-7-7 7-7" />
+                </svg>
+              </div>
+            </motion.div>
+
+            {/* Avatar 2 - Bottom Right */}
+            <motion.div 
+              animate={{ y: [0, -12, 0] }}
+              transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute bottom-[10%] right-[4%] xl:right-[8%] 2xl:right-[12%]"
+            >
+              <div className="relative scale-75 xl:scale-100">
+                <div className="w-16 h-16 rounded-full border-4 border-white shadow-lg overflow-hidden">
+                  <img src="https://picsum.photos/seed/user2/100/100" alt="User" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                </div>
+                <div className="absolute bottom-1 right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white"></div>
+                <svg className="absolute -top-8 -left-8 w-12 h-12 text-gray-200 -rotate-45 opacity-30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M19 12H5M12 19l-7-7 7-7" />
+                </svg>
+              </div>
+            </motion.div>
+
+            {/* Time Pill - Bottom Left */}
+            <motion.div 
+              animate={{ x: [0, 8, 0] }}
+              transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute bottom-[15%] left-[4%] xl:left-[10%] 2xl:left-[15%]"
+            >
+              <div className="relative scale-75 xl:scale-100">
+                <div className="px-4 py-2 bg-white border border-green-400 text-green-600 rounded-full text-small font-medium shadow-sm">
+                  It takes 2-3 min
+                </div>
+                <svg className="absolute -top-6 -left-6 w-10 h-10 text-gray-200 rotate-12 opacity-30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M19 12H5M12 19l-7-7 7-7" />
+                </svg>
+              </div>
+            </motion.div>
+          </div>
+
           <div className="container-custom relative z-10 text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -88,76 +159,6 @@ export default function App() {
                 </div>
               </div>
             </motion.div>
-
-            {/* Floating Elements */}
-            <div className="absolute inset-0 pointer-events-none overflow-hidden">
-              {/* Robot Icon */}
-              <motion.div 
-                animate={{ y: [0, -20, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-[60%] left-[15%] lg:left-[20%]"
-              >
-                <div className="relative">
-                  <div className="w-16 h-16 bg-gradient-to-br from-[#00D4FF] to-[#0080FE] rounded-full flex items-center justify-center shadow-lg border-4 border-white">
-                    <Zap className="w-8 h-8 text-white" />
-                  </div>
-                  <div className="absolute -top-4 -right-4 w-4 h-4 bg-green-500 rounded-full border-2 border-white"></div>
-                  <svg className="absolute -top-8 -right-8 w-12 h-12 text-gray-300 rotate-45" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </motion.div>
-
-              {/* Avatar 1 */}
-              <motion.div 
-                animate={{ y: [0, 20, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-[25%] right-[15%] lg:right-[20%]"
-              >
-                <div className="relative">
-                  <div className="w-14 h-14 rounded-full border-4 border-white shadow-lg overflow-hidden">
-                    <img src="https://picsum.photos/seed/user1/100/100" alt="User" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
-                  </div>
-                  <div className="absolute bottom-0 right-0 w-4 h-4 bg-green-500 rounded-full border-2 border-white"></div>
-                  <svg className="absolute top-1/2 -left-10 w-10 h-10 text-gray-300 -rotate-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M19 12H5M12 19l-7-7 7-7" />
-                  </svg>
-                </div>
-              </motion.div>
-
-              {/* Avatar 2 */}
-              <motion.div 
-                animate={{ y: [0, -15, 0] }}
-                transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute bottom-[20%] right-[10%] lg:right-[15%]"
-              >
-                <div className="relative">
-                  <div className="w-16 h-16 rounded-full border-4 border-white shadow-lg overflow-hidden">
-                    <img src="https://picsum.photos/seed/user2/100/100" alt="User" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
-                  </div>
-                  <div className="absolute bottom-1 right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white"></div>
-                  <svg className="absolute -top-8 -left-8 w-12 h-12 text-gray-300 -rotate-45" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M19 12H5M12 19l-7-7 7-7" />
-                  </svg>
-                </div>
-              </motion.div>
-
-              {/* Time Pill */}
-              <motion.div 
-                animate={{ x: [0, 10, 0] }}
-                transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute bottom-[25%] left-[55%]"
-              >
-                <div className="relative">
-                  <div className="px-4 py-2 bg-white border border-green-400 text-green-600 rounded-full text-small font-medium shadow-sm">
-                    It takes 2-3 min
-                  </div>
-                  <svg className="absolute -top-6 -left-6 w-10 h-10 text-gray-300 rotate-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M19 12H5M12 19l-7-7 7-7" />
-                  </svg>
-                </div>
-              </motion.div>
-            </div>
           </div>
           
           {/* Subtle Background Elements */}
@@ -640,14 +641,17 @@ export default function App() {
 
       <Footer />
 
-      {/* Floating AI Button */}
+      {/* Floating Contact Button */}
       <div className="fixed bottom-8 right-8 z-[1000] flex items-center gap-3">
-        <div className="bg-white rounded-full shadow-lg border border-gray-100 flex items-center gap-3 px-4 py-2 hover:shadow-xl transition-all cursor-pointer group">
-          <div className="w-8 h-8 bg-gradient-to-br from-[#00D4FF] to-[#0080FE] rounded-full flex items-center justify-center text-white">
-            <MessageSquare className="w-4 h-4" />
+        <a 
+          href="#contact"
+          className="bg-white rounded-full shadow-[0_10px_25px_rgba(0,0,0,0.1)] border border-gray-100 flex items-center gap-3 px-6 py-3 hover:shadow-[0_15px_35px_rgba(0,0,0,0.15)] transition-all cursor-pointer group hover:-translate-y-1"
+        >
+          <div className="w-8 h-8 bg-gradient-to-br from-[#0080FE] to-[#00D4FF] rounded-full flex items-center justify-center text-white shadow-sm">
+            <Mail className="w-4 h-4" />
           </div>
-          <span className="text-small font-bold text-[var(--color-text-primary)]">Ask Friday Enterprises AI</span>
-        </div>
+          <span className="text-small font-bold text-[var(--color-text-primary)]">Contact Us</span>
+        </a>
       </div>
     </div>
   );

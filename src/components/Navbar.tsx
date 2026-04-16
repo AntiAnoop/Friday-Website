@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
+import { Menu, X, ChevronDown, ArrowRight, Zap } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '@/src/lib/utils';
 import { Button } from './Button';
@@ -29,16 +29,19 @@ export const Navbar = () => {
     <div className="fixed top-6 left-0 right-0 z-[1000] px-4">
       <nav
         className={cn(
-          'container-custom max-w-[1280px] h-[72px] bg-white rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 flex items-center justify-between px-6 lg:px-8 transition-all duration-300',
-          isScrolled && 'shadow-[0_8px_30px_rgb(0,0,0,0.08)] scale-[0.98]'
+          'container-custom max-w-[1280px] h-[72px] bg-white rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.04)] border border-white/60 flex items-center justify-between px-6 lg:px-8 transition-all duration-500 backdrop-blur-md relative overflow-hidden',
+          isScrolled && 'shadow-[0_20px_50px_rgba(0,0,0,0.1)] scale-[0.99] border-gray-200/50'
         )}
       >
+        {/* Subtle Gradient Background Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-primary)]/5 via-transparent to-[var(--color-accent)]/5 pointer-events-none"></div>
+        
         {/* Logo */}
-        <a href="/" className="flex items-center gap-2 flex-shrink-0">
-          <div className="w-8 h-8 bg-[var(--color-primary)] rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-sm">
-            F
+        <a href="/" className="flex items-center gap-2 flex-shrink-0 group">
+          <div className="w-9 h-9 bg-gradient-to-br from-[#0080FE] to-[#00D4FF] rounded-xl flex items-center justify-center text-white shadow-md transition-transform group-hover:scale-110">
+            <Zap className="w-5 h-5 fill-current" />
           </div>
-          <span className="text-xl font-bold text-[var(--color-text-primary)] whitespace-nowrap">Friday Enterprises</span>
+          <span className="text-xl font-bold text-[var(--color-text-primary)] whitespace-nowrap tracking-tight">Friday Enterprises</span>
         </a>
 
         {/* Desktop Nav */}
